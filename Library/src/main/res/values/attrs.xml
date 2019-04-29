@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CursorView">
+        <attr name="cv_indicatorAlwaysInCenter" format="boolean" />
+        <attr name="cv_indicatorWithoutPadding" format="boolean" />
+        <attr name="cv_indicatorInFront" format="boolean" />
+        <attr name="cv_indicatorInterpolation" format="enum">
+            <enum name="cursor" value="0" />
+            <enum name="linear" value="1" />
+        </attr>
+        <attr name="cv_indicatorGravity" format="enum">
+            <enum name="bottom" value="0" />
+            <enum name="top" value="1" />
+            <enum name="center" value="2" />
+        </attr>
+        <attr name="cv_indicatorColor" format="color" />
+        <attr name="cv_indicatorColors" format="reference" />
+        <attr name="cv_indicatorThickness" format="dimension" />
+        <attr name="cv_indicatorWidth" format="dimension">
+            <enum name="auto" value="-1" />
+        </attr>
+        <attr name="cv_indicatorCornerRadius" format="dimension" />
+        <attr name="cv_overLineColor" format="color" />
+        <attr name="cv_overLineThickness" format="dimension" />
+        <attr name="cv_underLineColor" format="color" />
+        <attr name="cv_underLineThickness" format="dimension" />
+        <attr name="cv_dividerColor" format="color" />
+        <attr name="cv_dividerColors" format="reference" />
+        <attr name="cv_dividerThickness" format="dimension" />
+        <attr name="cv_normTabBackground" format="reference" />
+        <attr name="cv_normTabTextAllCaps" format="boolean" />
+        <attr name="cv_normTabTextColor" format="color|reference" />
+        <attr name="cv_normTabTextSize" format="dimension" />
+        <attr name="cv_normTabTextHorizontalPadding" format="dimension" />
+        <attr name="cv_normTabTextMinWidth" format="dimension" />
+        <attr name="cv_pickTabTextBold" format="boolean" />
+        <attr name="cv_pickTabTextSize" format="dimension" />
+        <attr name="cv_customTabTextLayoutId" format="reference" />
+        <attr name="cv_customTabTextViewId" format="reference" />
+        <attr name="cv_distributeEvenly" format="boolean" />
+        <attr name="cv_clickable" format="boolean" />
+        <attr name="cv_titleOffset" format="dimension">
+            <enum name="auto_center" value="-1" />
+        </attr>
+        <attr name="cv_drawDecorationAfterTab" format="boolean" />
+    </declare-styleable>
+</resources>
