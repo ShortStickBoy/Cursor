@@ -59,7 +59,7 @@ class CursorStrip extends LinearLayout {
     private int selectedPosition;
     private float selectionOffset;
     private CursorInterpolator indicationInterpolator;
-    private CursorView.TabColorizer customTabColorizer;
+    private CursorBase.TabColorizer customTabColorizer;
 
     CursorStrip(Context context, AttributeSet attrs) {
         super(context);
@@ -169,7 +169,7 @@ class CursorStrip extends LinearLayout {
         invalidate();
     }
 
-    void setCustomTabColorizer(CursorView.TabColorizer customTabColorizer) {
+    void setCustomTabColorizer(CursorBase.TabColorizer customTabColorizer) {
         this.customTabColorizer = customTabColorizer;
         invalidate();
     }
@@ -201,7 +201,7 @@ class CursorStrip extends LinearLayout {
         return indicatorAlwaysInCenter;
     }
 
-    CursorView.TabColorizer getTabColorizer() {
+    CursorBase.TabColorizer getTabColorizer() {
         return (customTabColorizer != null) ? customTabColorizer : defaultTabColorizer;
     }
 
@@ -224,7 +224,7 @@ class CursorStrip extends LinearLayout {
         final int height = getHeight();
         final int width = getWidth();
         final int tabCount = getChildCount();
-        final CursorView.TabColorizer tabColorizer = getTabColorizer();
+        final CursorBase.TabColorizer tabColorizer = getTabColorizer();
         final boolean isLayoutRtl = CursorUtils.isLayoutRtl(this);
 
         if (indicatorInFront) {
@@ -294,7 +294,7 @@ class CursorStrip extends LinearLayout {
         }
 
         final int dividerHeightPx = (int) (Math.min(Math.max(0f, dividerHeight), 1f) * height);
-        final CursorView.TabColorizer tabColorizer = getTabColorizer();
+        final CursorBase.TabColorizer tabColorizer = getTabColorizer();
 
         // Vertical separators between the titles
         final int separatorTop = (height - dividerHeightPx) / 2;
@@ -394,4 +394,5 @@ class CursorStrip extends LinearLayout {
             dividerColors = colors;
         }
     }
+
 }
