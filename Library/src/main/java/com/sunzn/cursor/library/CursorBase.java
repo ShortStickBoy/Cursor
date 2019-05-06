@@ -1,5 +1,6 @@
 package com.sunzn.cursor.library;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -54,6 +55,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         this(context, attrs, 0);
     }
 
+    @SuppressLint("CustomViewStyleable")
     public CursorBase(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
