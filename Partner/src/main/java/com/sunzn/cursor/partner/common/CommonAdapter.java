@@ -31,7 +31,7 @@ public class CommonAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = getPagerItem(position).initiate(inflater, container);
         container.addView(view);
-        holder.put(position, new WeakReference<View>(view));
+        holder.put(position, new WeakReference<>(view));
         return view;
     }
 
