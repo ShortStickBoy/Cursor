@@ -298,9 +298,11 @@ public abstract class CursorBase extends HorizontalScrollView {
         return textView;
     }
 
-    protected abstract void populateTabStrip();
-
     protected abstract int getCurrentItem();
+
+    protected abstract void setCurrentItem(int position);
+
+    protected abstract void populateTabStrip();
 
     protected void scrollToTab(int tabIndex, float positionOffset) {
         final int tabStripChildCount = tabStrip.getChildCount();
@@ -491,7 +493,5 @@ public abstract class CursorBase extends HorizontalScrollView {
             }
         }
     }
-
-    protected abstract void setCurrentItem(int position);
 
 }
