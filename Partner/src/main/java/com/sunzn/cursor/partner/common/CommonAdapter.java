@@ -32,6 +32,7 @@ public class CommonAdapter extends PagerAdapter {
         View view = getPagerItem(position).initiate(inflater, container);
         container.addView(view);
         holder.put(position, new WeakReference<>(view));
+        onViewCreated(view, position);
         return view;
     }
 
@@ -63,6 +64,10 @@ public class CommonAdapter extends PagerAdapter {
 
     protected CommonPager getPagerItem(int position) {
         return pages.get(position);
+    }
+
+    public void onViewCreated(View view, int position) {
+        // TODO
     }
 
 }
