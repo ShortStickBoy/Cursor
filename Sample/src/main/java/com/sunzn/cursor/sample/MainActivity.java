@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mCursorView.setOnTabClickListener(new CursorView.OnTabClickListener() {
             @Override
             public void onTabClicked(int position) {
-                mViewPager.setCurrentItem(position,false);
+                mViewPager.setCurrentItem(position, false);
             }
         });
     }
