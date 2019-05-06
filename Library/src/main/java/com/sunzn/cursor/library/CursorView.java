@@ -53,6 +53,7 @@ public class CursorView extends CursorBase {
         }
     }
 
+    @Override
     protected void populateTabStrip() {
         final PagerAdapter adapter = viewPager.getAdapter();
 
