@@ -11,7 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 
-class CursorStrip extends LinearLayout {
+public class CursorStrip extends LinearLayout {
 
     private static final int GRAVITY_BOTTOM = 0;
     private static final int GRAVITY_TOP = 1;
@@ -188,7 +188,7 @@ class CursorStrip extends LinearLayout {
         invalidate();
     }
 
-    void onViewPagerPageChanged(int position, float positionOffset) {
+    public void onViewPagerPageChanged(int position, float positionOffset) {
         selectedPosition = position;
         selectionOffset = positionOffset;
         if (positionOffset == 0f && lastPosition != selectedPosition) {

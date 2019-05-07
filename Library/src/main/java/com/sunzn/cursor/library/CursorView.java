@@ -61,7 +61,9 @@ public class CursorView extends CursorBase {
 
         for (int i = 0; i < size; i++) {
 
-            final View tabView = (tabProvider == null) ? createDefaultTabView(adapter.getPageTitle(i), i) : tabProvider.createTabView(tabStrip, i, adapter);
+            CharSequence title = adapter.getPageTitle(i);
+
+            final View tabView = (tabProvider == null) ? createDefaultTabView(title) : tabProvider.createTabView(tabStrip, i, title);
 
             if (tabView == null) {
                 throw new IllegalStateException("tabView is null.");

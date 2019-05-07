@@ -4,8 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
-import android.support.v4.view.PagerAdapter;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -268,14 +267,14 @@ public abstract class CursorBase extends HorizontalScrollView {
      * Create a default view to be used for tabs. This is called if a custom tab view is not set via
      * {@link #setCustomTabView(int, int)}.
      */
-    protected TextView createDefaultTabView(CharSequence title, int position) {
+    protected TextView createDefaultTabView(CharSequence title) {
         TextView textView = new TextView(getContext());
         textView.setGravity(Gravity.CENTER);
         textView.setText(title);
         textView.setTextColor(normTabTextColors);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, normTabTextSize);
 //        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setTypeface(position == 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+//        textView.setTypeface(position == 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
         if (tabViewBackgroundResId != NO_ID) {
@@ -439,7 +438,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         /**
          * @return Return the View of {@code position} for the Tabs
          */
-        View createTabView(ViewGroup container, int position, PagerAdapter adapter);
+        View createTabView(ViewGroup container, int position, @Nullable CharSequence title);
 
     }
 
@@ -456,7 +455,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         }
 
         @Override
-        public View createTabView(ViewGroup container, int position, PagerAdapter adapter) {
+        public View createTabView(ViewGroup container, int position, @Nullable CharSequence title) {
             View tabView = null;
             TextView tabTitleView = null;
 
@@ -473,7 +472,7 @@ public abstract class CursorBase extends HorizontalScrollView {
             }
 
             if (tabTitleView != null) {
-                tabTitleView.setText(adapter.getPageTitle(position));
+                tabTitleView.setText(title);
             }
 
             return tabView;
