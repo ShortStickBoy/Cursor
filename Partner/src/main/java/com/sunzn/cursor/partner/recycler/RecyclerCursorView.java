@@ -77,7 +77,7 @@ public class RecyclerCursorView extends CursorBase {
         for (int i = 0; i < count; i++) {
             CharSequence title = ((RecyclerPagerAdapter) adapter).getPageTitle(i);
 
-            final View tabView = (tabProvider == null) ? createDefaultTabView(title) : tabProvider.createTabView(tabStrip, i, title);
+            final View tabView = (tabProvider == null) ? createDefaultTabView(title, i) : tabProvider.createTabView(tabStrip, i, title);
 
             if (tabView == null) {
                 throw new IllegalStateException("tabView is null.");
