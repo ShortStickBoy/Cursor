@@ -169,8 +169,7 @@ public class RecyclerCursorView extends CursorBase {
         }
 
         @Override
-        public void onItemRangeChanged(int positionStart, int itemCount,
-                                       @Nullable Object payload) {
+        public void onItemRangeChanged(int positionStart, int itemCount, @Nullable Object payload) {
             super.onItemRangeChanged(positionStart, itemCount, payload);
             onChanged();
         }
