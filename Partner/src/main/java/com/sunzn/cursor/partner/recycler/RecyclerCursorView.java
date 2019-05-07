@@ -1,12 +1,15 @@
 package com.sunzn.cursor.partner.recycler;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.sunzn.cursor.library.CursorBase;
 
@@ -133,6 +136,10 @@ public class RecyclerCursorView extends CursorBase {
             super.onPageSelected(position);
             for (int i = 0, size = tabStrip.getChildCount(); i < size; i++) {
                 tabStrip.getChildAt(i).setSelected(position == i);
+                if (tabStrip.getChildAt(i) instanceof TextView) {
+                    ((TextView) tabStrip.getChildAt(i)).setTypeface(Typeface.defaultFromStyle(position == i && pickTabTextBold ? Typeface.BOLD : Typeface.NORMAL));
+                    ((TextView) tabStrip.getChildAt(i)).setTextSize(TypedValue.COMPLEX_UNIT_PX, position == i ? pickTabTextSize : normTabTextSize);
+                }
             }
         }
     }
