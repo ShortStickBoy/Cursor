@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             Bundle bundle = new Bundle();
             bundle.putInt("Value", i);
-            pagers.add(FragmentPager.of(getName(i), SampleFragment.class, bundle));
+            pagers.add(FragmentPager.from(getName(i), SampleFragment.class, bundle));
         }
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(), pagers);
         mViewPager.setAdapter(adapter);
