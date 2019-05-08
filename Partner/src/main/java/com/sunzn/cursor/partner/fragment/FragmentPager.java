@@ -20,19 +20,19 @@ public class FragmentPager extends Pager {
         this.args = args;
     }
 
-    public static FragmentPager of(CharSequence title, Class<? extends Fragment> clazz) {
-        return of(title, DEFAULT_WIDTH, clazz);
+    public static FragmentPager from(CharSequence title, Class<? extends Fragment> clazz) {
+        return from(title, DEFAULT_WIDTH, clazz);
     }
 
-    public static FragmentPager of(CharSequence title, Class<? extends Fragment> clazz, Bundle args) {
-        return of(title, DEFAULT_WIDTH, clazz, args);
+    public static FragmentPager from(CharSequence title, Class<? extends Fragment> clazz, Bundle args) {
+        return from(title, DEFAULT_WIDTH, clazz, args);
     }
 
-    public static FragmentPager of(CharSequence title, float width, Class<? extends Fragment> clazz) {
-        return of(title, width, clazz, new Bundle());
+    public static FragmentPager from(CharSequence title, float width, Class<? extends Fragment> clazz) {
+        return from(title, width, clazz, new Bundle());
     }
 
-    public static FragmentPager of(CharSequence title, float width, Class<? extends Fragment> clazz, Bundle args) {
+    public static FragmentPager from(CharSequence title, float width, Class<? extends Fragment> clazz, Bundle args) {
         return new FragmentPager(title, width, clazz.getName(), args);
     }
 

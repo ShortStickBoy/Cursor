@@ -26,27 +26,27 @@ public class FragmentHolder extends Holder<FragmentPager> {
         }
 
         public Creator add(@StringRes int title, Class<? extends Fragment> clazz) {
-            return add(FragmentPager.of(items.getContext().getString(title), clazz));
+            return add(FragmentPager.from(items.getContext().getString(title), clazz));
         }
 
         public Creator add(@StringRes int title, Class<? extends Fragment> clazz, Bundle args) {
-            return add(FragmentPager.of(items.getContext().getString(title), clazz, args));
+            return add(FragmentPager.from(items.getContext().getString(title), clazz, args));
         }
 
         public Creator add(@StringRes int title, float width, Class<? extends Fragment> clazz) {
-            return add(FragmentPager.of(items.getContext().getString(title), width, clazz));
+            return add(FragmentPager.from(items.getContext().getString(title), width, clazz));
         }
 
         public Creator add(@StringRes int title, float width, Class<? extends Fragment> clazz, Bundle args) {
-            return add(FragmentPager.of(items.getContext().getString(title), width, clazz, args));
+            return add(FragmentPager.from(items.getContext().getString(title), width, clazz, args));
         }
 
         public Creator add(CharSequence title, Class<? extends Fragment> clazz) {
-            return add(FragmentPager.of(title, clazz));
+            return add(FragmentPager.from(title, clazz));
         }
 
         public Creator add(CharSequence title, Class<? extends Fragment> clazz, Bundle args) {
-            return add(FragmentPager.of(title, clazz, args));
+            return add(FragmentPager.from(title, clazz, args));
         }
 
         public Creator add(FragmentPager item) {
