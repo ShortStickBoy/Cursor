@@ -11,13 +11,17 @@ import java.lang.ref.WeakReference;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
-    private final FragmentHolder pages;
-    private final SparseArrayCompat<WeakReference<Fragment>> holder;
+    private FragmentHolder pages;
+    private SparseArrayCompat<WeakReference<Fragment>> holder;
 
     public FragmentAdapter(FragmentManager fm, FragmentHolder pages) {
         super(fm);
         this.pages = pages;
         this.holder = new SparseArrayCompat<>(pages.size());
+    }
+
+    public void setPages(FragmentHolder pages) {
+        this.pages = pages;
     }
 
     @Override
