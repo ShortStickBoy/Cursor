@@ -28,12 +28,14 @@ public abstract class CursorBase extends HorizontalScrollView {
     private static final int TAB_VIEW_TEXT_SIZE_SP = 12;
     private static final int TAB_VIEW_TEXT_COLOR = 0xFC000000;
     private static final int TAB_VIEW_TEXT_MIN_WIDTH = 0;
+    private static final boolean TAB_TEXT_TYPEFACE = true;
     private static final boolean TAB_CLICKABLE = true;
 
     protected final CursorStrip tabStrip;
     private int titleOffset;
     private int tabViewBackgroundResId;
     private boolean tabViewTextAllCaps;
+    private boolean makeTabTextTypeface;
     private ColorStateList normTabTextColors;
     protected float normTabTextSize;
     private int tabViewTextHorizontalPadding;
@@ -72,6 +74,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         boolean distributeEvenly = DEFAULT_DISTRIBUTE_EVENLY;
         int customTabLayoutId = NO_ID;
         int customTabTextViewId = NO_ID;
+        boolean typeface = TAB_TEXT_TYPEFACE;
         boolean clickable = TAB_CLICKABLE;
         int titleOffset = (int) (TITLE_OFFSET_DIPS * density);
 
@@ -82,6 +85,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         normTextSize = a.getDimension(R.styleable.CursorView_cv_normTabTextSize, normTextSize);
         textHorizontalPadding = a.getDimensionPixelSize(R.styleable.CursorView_cv_normTabTextHorizontalPadding, textHorizontalPadding);
         textMinWidth = a.getDimensionPixelSize(R.styleable.CursorView_cv_normTabTextMinWidth, textMinWidth);
+        typeface = a.getBoolean(R.styleable.CursorView_cv_makeTabTextTypeface, typeface);
         customTabLayoutId = a.getResourceId(R.styleable.CursorView_cv_customTabTextLayoutId, customTabLayoutId);
         customTabTextViewId = a.getResourceId(R.styleable.CursorView_cv_customTabTextViewId, customTabTextViewId);
         distributeEvenly = a.getBoolean(R.styleable.CursorView_cv_distributeEvenly, distributeEvenly);
@@ -96,6 +100,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         this.normTabTextSize = normTextSize;
         this.tabViewTextHorizontalPadding = textHorizontalPadding;
         this.tabViewTextMinWidth = textMinWidth;
+        this.makeTabTextTypeface = typeface;
         this.internalTabClickListener = clickable ? new InternalTabClickListener() : null;
         this.distributeEvenly = distributeEvenly;
 
@@ -253,6 +258,10 @@ public abstract class CursorBase extends HorizontalScrollView {
      */
     public View getTabAt(int position) {
         return tabStrip.getChildAt(position);
+    }
+
+    public boolean isMakeTabTextTypeface() {
+        return makeTabTextTypeface;
     }
 
     /**
