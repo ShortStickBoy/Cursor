@@ -84,7 +84,7 @@ public class CursorView extends CursorBase {
                 tabView.setSelected(true);
             }
 
-            if (tabView instanceof TextView) {
+            if (isMakeTabTextTypeface() && tabView instanceof TextView) {
                 if (i == viewPager.getCurrentItem()) {
                     ((TextView) tabView).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 } else {
@@ -143,7 +143,7 @@ public class CursorView extends CursorBase {
 
             for (int i = 0, size = tabStrip.getChildCount(); i < size; i++) {
                 tabStrip.getChildAt(i).setSelected(position == i);
-                if (tabStrip.getChildAt(i) instanceof TextView) {
+                if (isMakeTabTextTypeface() && tabStrip.getChildAt(i) instanceof TextView) {
                     if (position == i) {
                         ((TextView) tabStrip.getChildAt(i)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     } else {
@@ -158,6 +158,5 @@ public class CursorView extends CursorBase {
         }
 
     }
-
 
 }
