@@ -84,6 +84,13 @@ public class CursorView extends CursorBase {
                 tabView.setSelected(true);
             }
 
+            if (tabView instanceof TextView) {
+                if (i == viewPager.getCurrentItem()) {
+                    ((TextView) tabView).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                } else {
+                    ((TextView) tabView).setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                }
+            }
         }
     }
 
