@@ -29,14 +29,11 @@ public abstract class CursorBase extends HorizontalScrollView {
     private static final int TAB_VIEW_TEXT_COLOR = 0xFC000000;
     private static final int TAB_VIEW_TEXT_MIN_WIDTH = 0;
     private static final boolean TAB_CLICKABLE = true;
-    private static final boolean TEXT_BOLD = false;
 
     protected final CursorStrip tabStrip;
     private int titleOffset;
     private int tabViewBackgroundResId;
     private boolean tabViewTextAllCaps;
-    protected boolean pickTabTextBold;
-    protected float pickTabTextSize;
     private ColorStateList normTabTextColors;
     protected float normTabTextSize;
     private int tabViewTextHorizontalPadding;
@@ -70,14 +67,12 @@ public abstract class CursorBase extends HorizontalScrollView {
         boolean textAllCaps = TAB_VIEW_TEXT_ALL_CAPS;
         ColorStateList normTextColors;
         float normTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP, dm);
-        float pickTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP, dm);
         int textHorizontalPadding = (int) (TAB_VIEW_PADDING_DIPS * density);
         int textMinWidth = (int) (TAB_VIEW_TEXT_MIN_WIDTH * density);
         boolean distributeEvenly = DEFAULT_DISTRIBUTE_EVENLY;
         int customTabLayoutId = NO_ID;
         int customTabTextViewId = NO_ID;
         boolean clickable = TAB_CLICKABLE;
-        boolean pickTextBold = TEXT_BOLD;
         int titleOffset = (int) (TITLE_OFFSET_DIPS * density);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CursorView, defStyle, 0);
@@ -92,8 +87,6 @@ public abstract class CursorBase extends HorizontalScrollView {
         distributeEvenly = a.getBoolean(R.styleable.CursorView_cv_distributeEvenly, distributeEvenly);
         clickable = a.getBoolean(R.styleable.CursorView_cv_clickable, clickable);
         titleOffset = a.getLayoutDimension(R.styleable.CursorView_cv_titleOffset, titleOffset);
-        pickTextBold = a.getBoolean(R.styleable.CursorView_cv_pickTabTextBold, pickTextBold);
-        pickTextSize = a.getDimension(R.styleable.CursorView_cv_pickTabTextSize, pickTextSize);
         a.recycle();
 
         this.titleOffset = titleOffset;
@@ -105,8 +98,6 @@ public abstract class CursorBase extends HorizontalScrollView {
         this.tabViewTextMinWidth = textMinWidth;
         this.internalTabClickListener = clickable ? new InternalTabClickListener() : null;
         this.distributeEvenly = distributeEvenly;
-        this.pickTabTextBold = pickTextBold;
-        this.pickTabTextSize = pickTextSize;
 
         if (customTabLayoutId != NO_ID) {
             setCustomTabView(customTabLayoutId, customTabTextViewId);
