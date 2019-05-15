@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -137,8 +136,11 @@ public class RecyclerCursorView extends CursorBase {
             for (int i = 0, size = tabStrip.getChildCount(); i < size; i++) {
                 tabStrip.getChildAt(i).setSelected(position == i);
                 if (tabStrip.getChildAt(i) instanceof TextView) {
-                    ((TextView) tabStrip.getChildAt(i)).setTypeface(Typeface.defaultFromStyle(position == i && pickTabTextBold ? Typeface.BOLD : Typeface.NORMAL));
-                    ((TextView) tabStrip.getChildAt(i)).setTextSize(TypedValue.COMPLEX_UNIT_PX, position == i ? pickTabTextSize : normTabTextSize);
+                    if (position == i) {
+                        ((TextView) tabStrip.getChildAt(i)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    } else {
+                        ((TextView) tabStrip.getChildAt(i)).setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
                 }
             }
         }
