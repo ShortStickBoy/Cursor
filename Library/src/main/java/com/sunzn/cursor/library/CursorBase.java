@@ -274,8 +274,7 @@ public abstract class CursorBase extends HorizontalScrollView {
         textView.setText(title);
         textView.setTextColor(normTabTextColors);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, normTabTextSize);
-//        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setTypeface(position == 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+        textView.setTypeface(Typeface.DEFAULT_BOLD);
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
         if (tabViewBackgroundResId != NO_ID) {
