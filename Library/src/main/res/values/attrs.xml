@@ -33,8 +33,6 @@
         <attr name="cv_normTabTextSize" format="dimension" />
         <attr name="cv_normTabTextHorizontalPadding" format="dimension" />
         <attr name="cv_normTabTextMinWidth" format="dimension" />
-        <attr name="cv_pickTabTextBold" format="boolean" />
-        <attr name="cv_pickTabTextSize" format="dimension" />
         <attr name="cv_customTabTextLayoutId" format="reference" />
         <attr name="cv_customTabTextViewId" format="reference" />
         <attr name="cv_distributeEvenly" format="boolean" />
