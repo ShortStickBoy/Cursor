@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(), pagers);
         mViewPager.setAdapter(adapter);
         mCursorView.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(1, false);
         mCursorView.setOnTabClickListener(new CursorView.OnTabClickListener() {
             @Override
             public void onTabClicked(int position) {

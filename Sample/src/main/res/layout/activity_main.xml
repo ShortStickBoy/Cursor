@@ -26,6 +26,7 @@
         app:cv_indicatorThickness="2dp"
         app:cv_indicatorWidth="auto"
         app:cv_indicatorWithoutPadding="true"
+        app:cv_makeTabTextTypeface="true"
         app:cv_normTabBackground="@android:color/transparent"
         app:cv_normTabTextAllCaps="true"
         app:cv_normTabTextColor="@color/color_cursor"
@@ -34,8 +35,6 @@
         app:cv_normTabTextSize="18sp"
         app:cv_overLineColor="#4D000000"
         app:cv_overLineThickness="0dp"
-        app:cv_pickTabTextBold="true"
-        app:cv_pickTabTextSize="18.5sp"
         app:cv_titleOffset="auto_center"
         app:cv_underLineColor="#4D000000"
         app:cv_underLineThickness="0dp" />
