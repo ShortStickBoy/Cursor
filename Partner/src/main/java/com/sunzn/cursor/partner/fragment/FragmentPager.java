@@ -14,27 +14,27 @@ public class FragmentPager extends Pager {
     private static final String KEY_POSITION = TAG + ":Position";
 
     private final String className;
-    private final Bundle args;
+    private final Bundle bundle;
 
-    protected FragmentPager(CharSequence title, float width, String className, Bundle args) {
+    protected FragmentPager(String title, float width, String className, Bundle bundle) {
         super(title, width);
         this.className = className;
-        this.args = args;
+        this.bundle = bundle;
     }
 
-    public static FragmentPager from(CharSequence title, Class<? extends Fragment> clazz) {
+    public static FragmentPager from(String title, Class<? extends Fragment> clazz) {
         return from(title, DEFAULT_WIDTH, clazz);
     }
 
-    public static FragmentPager from(CharSequence title, Class<? extends Fragment> clazz, Bundle args) {
+    public static FragmentPager from(String title, Class<? extends Fragment> clazz, Bundle args) {
         return from(title, DEFAULT_WIDTH, clazz, args);
     }
 
-    public static FragmentPager from(CharSequence title, float width, Class<? extends Fragment> clazz) {
+    public static FragmentPager from(String title, float width, Class<? extends Fragment> clazz) {
         return from(title, width, clazz, new Bundle());
     }
 
-    public static FragmentPager from(CharSequence title, float width, Class<? extends Fragment> clazz, Bundle args) {
+    public static FragmentPager from(String title, float width, Class<? extends Fragment> clazz, Bundle args) {
         return new FragmentPager(title, width, clazz.getName(), args);
     }
 
@@ -51,10 +51,10 @@ public class FragmentPager extends Pager {
     }
 
     public Fragment instantiate(FragmentManager manager, Context context, int position) {
-        setPosition(args, position);
-//        return Fragment.instantiate(context, className, args);
+        setPosition(bundle, position);
+//        return Fragment.instantiate(context, className, bundle);
         Fragment fragment = manager.getFragmentFactory().instantiate(context.getClassLoader(), className);
-        fragment.setArguments(args);
+        fragment.setArguments(bundle);
         return fragment;
     }
 

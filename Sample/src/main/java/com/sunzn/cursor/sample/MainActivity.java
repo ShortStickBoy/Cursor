@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 return "诸子百家";
             default:
-                return "默认";
+                return "默认" + i;
         }
     }
 }

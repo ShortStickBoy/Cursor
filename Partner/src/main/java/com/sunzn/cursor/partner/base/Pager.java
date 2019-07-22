@@ -4,15 +4,15 @@ public abstract class Pager {
 
     protected static final float DEFAULT_WIDTH = 1.f;
 
-    private final CharSequence title;
+    private final String title;
     private final float width;
 
-    protected Pager(CharSequence title, float width) {
+    protected Pager(String title, float width) {
         this.title = title;
         this.width = width;
     }
 
-    public CharSequence getTitle() {
+    public String getTitle() {
         return title;
     }
 

@@ -12,7 +12,14 @@ import java.lang.ref.WeakReference;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
+    interface PositionHelper {
+
+        int onGetPosition(@NonNull Object object);
+
+    }
+
     private FragmentHolder pages;
+    private PositionHelper helper;
     private FragmentManager manager;
     private SparseArrayCompat<WeakReference<Fragment>> holder;
 
@@ -27,6 +34,10 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         this.pages = pages;
     }
 
+    public void setPositionHelper(PositionHelper helper) {
+        this.helper = helper;
+    }
+
     @Override
     public int getCount() {
         return pages.size();
@@ -36,6 +47,20 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         return getPagerItem(position).instantiate(manager, pages.getContext(), position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return getPageTitle(position).hashCode();
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        if (helper != null) {
+            return helper.onGetPosition(object);
+        } else {
+            return super.getItemPosition(object);
+        }
     }
 
     @NonNull
@@ -54,6 +79,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         super.destroyItem(container, position, object);
     }
 
+    @NonNull
     @Override
     public CharSequence getPageTitle(int position) {
         return getPagerItem(position).getTitle();

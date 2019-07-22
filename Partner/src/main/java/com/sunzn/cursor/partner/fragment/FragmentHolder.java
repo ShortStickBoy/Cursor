@@ -42,11 +42,11 @@ public class FragmentHolder extends Holder<FragmentPager> {
             return add(FragmentPager.from(items.getContext().getString(title), width, clazz, args));
         }
 
-        public Creator add(CharSequence title, Class<? extends Fragment> clazz) {
+        public Creator add(String title, Class<? extends Fragment> clazz) {
             return add(FragmentPager.from(title, clazz));
         }
 
-        public Creator add(CharSequence title, Class<? extends Fragment> clazz, Bundle args) {
+        public Creator add(String title, Class<? extends Fragment> clazz, Bundle args) {
             return add(FragmentPager.from(title, clazz, args));
         }
 
