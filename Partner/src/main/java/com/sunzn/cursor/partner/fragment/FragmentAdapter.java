@@ -1,21 +1,24 @@
 package com.sunzn.cursor.partner.fragment;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.util.SparseArrayCompat;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.collection.SparseArrayCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.lang.ref.WeakReference;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
     private FragmentHolder pages;
+    private FragmentManager manager;
     private SparseArrayCompat<WeakReference<Fragment>> holder;
 
     public FragmentAdapter(FragmentManager fm, FragmentHolder pages) {
-        super(fm);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        this.manager = fm;
         this.pages = pages;
         this.holder = new SparseArrayCompat<>(pages.size());
     }
@@ -29,9 +32,10 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         return pages.size();
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        return getPagerItem(position).instantiate(pages.getContext(), position);
+        return getPagerItem(position).instantiate(manager, pages.getContext(), position);
     }
 
     @NonNull

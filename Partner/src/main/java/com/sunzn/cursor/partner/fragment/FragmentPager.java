@@ -2,7 +2,9 @@ package com.sunzn.cursor.partner.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.sunzn.cursor.partner.base.Pager;
 
@@ -48,9 +50,12 @@ public class FragmentPager extends Pager {
         args.putInt(KEY_POSITION, position);
     }
 
-    public Fragment instantiate(Context context, int position) {
+    public Fragment instantiate(FragmentManager manager, Context context, int position) {
         setPosition(args, position);
-        return Fragment.instantiate(context, className, args);
+//        return Fragment.instantiate(context, className, args);
+        Fragment fragment = manager.getFragmentFactory().instantiate(context.getClassLoader(), className);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 }
