@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
-    interface PositionHelper {
+    public interface PositionHelper {
 
         int onGetPosition(@NonNull Object object);
 
