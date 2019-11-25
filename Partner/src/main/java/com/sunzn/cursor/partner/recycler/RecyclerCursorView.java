@@ -113,7 +113,7 @@ public class RecyclerCursorView extends CursorBase {
     }
 
     @Override
-    protected void setCurrentItem(int position) {
+    public void setCurrentItem(int position) {
         if (mRecyclerView != null) {
             mRecyclerView.scrollToPosition(position);
         }
